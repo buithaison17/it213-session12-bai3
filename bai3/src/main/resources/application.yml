@@ -1,0 +1,34 @@
+spring:
+  application:
+  name: bai2
+  ai:
+    mcp:
+      server:
+        name: mcp-server
+        capabilities:
+          prompt: true
+          tool: true
+          resource: true
+          completion: true
+        version: 1.0.0
+        request-timeout: 20s
+        type: sync
+        stdio: true
+    openai:
+      base-url: https://openrouter.ai/api/v1
+      api-key: ${OPEN_ROURER_API_KEY}
+      chat:
+        model: gpt-oss-20b
+  datasource:
+    url: jdbc:h2:mem:mydb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+    hibernate:
+      ddl-auto: update
